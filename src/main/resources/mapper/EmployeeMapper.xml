@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//http://mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wsy.mapper.EmployeeMapper">
+    <insert id="add">
+        insert into employee (name, age, address, phone, password, sex)
+        values (#{name},#{age},#{address},#{phone},#{password},#{sex})
+    </insert>
+    <update id="update">
+        update employee set name=#{name},age=#{age},address=#{address},phone=#{phone},password=#{password},sex=#{sex} where id=#{id}
+    </update>
+    <delete id="deleteById">
+        delete from employee where id=#{id}
+    </delete>
+
+    <select id="getAll" resultType="com.wsy.entity.Employee">
+        select * from employee
+    </select>
+    <select id="getById" resultType="com.wsy.entity.Employee">
+        select * from employee where id=#{id}
+    </select>
+</mapper>
